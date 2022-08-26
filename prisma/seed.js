@@ -14,13 +14,11 @@ async function seed() {
     const createdContact = await prisma.contact.create({
         data: {
             phone: '0987654321',
-            email: 'alice@wonder.land' 
+            email: 'alice@wonder.land',
+            customerId: createdCustomer.id
         }
     })
     console.log('Contact created', createdContact);
-
-
-
 
     // Don't edit any of the code below this line
     process.exit(0);
