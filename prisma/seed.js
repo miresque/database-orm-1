@@ -30,7 +30,13 @@ async function seed() {
     
     const createdScreen = await prisma.screen.create({
         data: {
-            number: 1
+            number: 1,
+            seats: {
+                create: { number: 1, row: 'A'}
+            }
+        },
+        include: {
+            seats: true
         }
     })
     console.log('Screen created', createdScreen);
